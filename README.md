@@ -18,7 +18,7 @@ A Spring Boot-based e-commerce backend service designed to manage products, cate
 - **Language:** Java 17+
 - **Framework:** [Spring Boot](https://spring.io/projects/spring-boot)
 - **Data Persistence:** Spring Data JPA, Hibernate ORM
-- **Database:** MySQL / Microsoft SQL Server
+- **Database:** PostgreSQL (or MySQL / SQL Server)
 - **Productivity Tools:** [Project Lombok](https://projectlombok.org/)
 - **Build Tool:** Apache Maven (with Maven Wrapper `mvnw`)
 
@@ -29,7 +29,7 @@ A Spring Boot-based e-commerce backend service designed to manage products, cate
 Before running the project, ensure you have:
 
 - **Java Development Kit (JDK):** Version 17 or higher installed (`java -version`)
-- **Database:** MySQL Server installed and running locally on port `3306` (or configured remotely)
+- **Database:** PostgreSQL Server installed and running locally on port `5432` (or configured remotely)
 - **Git:** For version control
 
 ---
@@ -42,20 +42,20 @@ Configure your database connection and server port in [`src/main/resources/appli
 spring.application.name=dream-shop
 server.port=9193
 
-# Database configuration
-spring.datasource.url=jdbc:mysql://localhost:3306/dream_shop_db?createDatabaseIfNotExist=true
-spring.datasource.username=root
+# PostgreSQL Database configuration
+spring.datasource.url=jdbc:postgresql://localhost:5432/dream_shop_db
+spring.datasource.username=postgres
 spring.datasource.password=your_password
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.driver-class-name=org.postgresql.Driver
 
 # JPA / Hibernate
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-> **Note:** Make sure to replace `your_password` with your actual MySQL database password, and create or point to your desired database name (e.g. `dream_shop_db`).
+> **Note:** Make sure to replace `your_password` with your actual PostgreSQL database password, and create a database named `dream_shop_db` in DBeaver / pgAdmin.
 
 ---
 
