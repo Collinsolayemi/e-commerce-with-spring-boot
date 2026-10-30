@@ -47,26 +47,26 @@ public class ProductService implements IProductService {
 
     @Override
     public List<Product> getProductsByBrand(String brand) {
-        return null;
+        return productRepository.findByBrand(brand);
     }
 
     @Override
     public List<Product> getProductsByCategoryAndBrand(String category, String brand) {
-        return null;
+        return productRepository.findByCategoryNameAndBrand(category, brand);
     }
 
     @Override
     public List<Product> getProductsByName(String name) {
-        return null;
+        return productRepository.findByName(name);
     }
 
     @Override
     public List<Product> getProductsByBrandAndName(String brand, String name) {
-        return null;
+        return productRepository.findByBrandAndName(brand, name);
     }
 
     @Override
     public Long countProductsByBrandAndName(String brand, String name) {
-        return null;
+        return productRepository.countByBrandAndName(brand, name);
     }
 }
